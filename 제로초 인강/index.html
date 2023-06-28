@@ -11,20 +11,35 @@
         margin: 0;
         padding: 0;
       }
+
       #wrap {
         text-align: center;
       }
+
       #wrap-center {
         width: 1280px;
         display: inline-block;
         background-color: lightpink;
       }
-      #hamburger {
-        margin-top: 18px;
-        background-color: lightblue;
-        width: 46px;
-        height: 46px;
+
+      #header {
+        text-align: left;
       }
+
+      #header-hamburger {
+        display: inline-block;
+        padding: 10px;
+        margin-top: 18px;
+      }
+
+      #header-hamburger > div {
+        background-image: url(./sp_main.png);
+        background-size: 422px 405px;
+        background-position: -335px -284px;
+        width: 26px;
+        height: 26px;
+      }
+
       #main {
         height: 2000px;
       }
@@ -34,7 +49,9 @@
     <div id="wrap">
       <div id="wrap-center">
         <div id="header">
-          <div id="header-hamburger"></div>
+          <div id="header-hamburger">
+            <div></div>
+          </div>
         </div>
         <div id="search"></div>
         <div id="nav"></div>

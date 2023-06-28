@@ -699,6 +699,8 @@
             color: rgba(8, 8, 8, 0.5);
             display: flex;
             justify-content: flex-start;
+            line-height: 23px;
+            margin-bottom: 37px;
           }
 
           #main-newstand header .bold {
@@ -709,7 +711,13 @@
           #main-newstand-gray {
             display: flex;
             justify-content: flex-start;
+            height: 50px;
+            padding: 12px 20px;
+            background-color: var(--color_option_bg);
+            border-radius: 4px;
+            grid-gap: 1px;
           }
+
           #main-newstand a {
             text-decoration: none;
           }
@@ -720,6 +728,28 @@
 
           #main-newstand a:hover {
             text-decoration: underline;
+          }
+
+          #main-newstand-grid {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 224px;
+            grid-gap: 1px;
+            width: 790px;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(6, 1fr);
+            border: 1px solid var(--color_border_in);
+            border-radius: 4px;
+            margin-top: 18px;
+          }
+
+          #main-newstand-grid > div {
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           #main-newstand footer {
@@ -753,12 +783,6 @@
                   </div>
                 </div>
                 <div id="main-newstand-grid">
-                  <div>언론사</div>
-                  <div>언론사</div>
-                  <div>언론사</div>
-                  <div>언론사</div>
-                  <div>언론사</div>
-                  <div>언론사</div>
                   <div>언론사</div>
                   <div>언론사</div>
                   <div>언론사</div>

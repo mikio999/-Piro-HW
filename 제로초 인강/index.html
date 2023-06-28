@@ -213,12 +213,27 @@
 
           #search-svg {
             display: inline-flex;
+            position: relative;
             justify-content: center;
             align-items: center;
             width: 68px;
             margin-right: 12px;
             height: 100%;
             padding-left: 10px;
+          }
+          #search-svg::after {
+            display: none;
+          }
+
+          #search > form:focus-within #search-svg::after {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 20px;
+            content: "";
+            width: 1px;
+            height: 20px;
+            background-color: #e4e4e4;
           }
 
           #search-svg svg {

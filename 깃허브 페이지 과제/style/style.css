@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: #22272d;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* navigation */
+
+.navigation {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  color: white;
+}
+
+.navigation div:hover {
+  cursor: pointer;
+}
+
+#left-side {
+  display: flex;
+  flex-direction: row;
+}
+
+#left-side div {
+  margin-left: 40px;
+}
+
+#left-side .svg-down {
+  margin-top: 10px;
+}
+.logo span {
+  margin-left: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.logo img {
+  width: 40px;
+  border-radius: 25%;
+  background-color: white;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  margin-left: 10px;
+}
+
+#searchBar {
+  display: flex;
+}
+#searchBar svg {
+  border: 1px solid white;
+  padding: 5px;
+}
+.searchText {
+  padding: 10px;
+  width: 250px;
+  background-color: #758390;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: left;
+}
+
+input::placeholder {
+  color: #acbac7;
+}
+
+#right-side a {
+  color: white;
+  background-color: transparent;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+#sign-in {
+  padding-top: 7px;
+}
+#sign-up {
+  border: solid 1px white;
+  padding: 7px;
+  border-radius: 10%;
+}
+main {
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 600px 600px;
+  column-gap: 100px;
+}
+
+#left-main h1 {
+  color: white;
+  font-size: 90px;
+}
+
+#left-main h5 {
+  color: #acbac7;
+  font-size: 25px;
+}
+#wrapper {
+  width: 500px;
+  height: 650px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 15px;
+}
+
+#sign-up-container {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  height: 600px;
+  background-color: white;
+}
+
+#sign-up-container label,
+input,
+p,
+a {
+  background-color: white;
+  border: none;
+}
+
+#sign-up-container label {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#sign-up-container input {
+  margin: 10px;
+  padding: 20px;
+  border: solid 1px gray;
+  border-radius: 10px;
+}
+
+#sign-up-container input:hover {
+  cursor: pointer;
+}
+
+#sign-up-container input:focus {
+  background-color: lightblue;
+}
+
+#sign .input-box {
+  background-color: white;
+  padding: 10px;
+}
+
+#qualification {
+  color: gray;
+}
+
+#signup-btn {
+  background-color: rgb(48, 164, 48);
+  width: 450px;
+  height: 100px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
+
+#signup-btn:hover {
+  cursor: pointer;
+}
+
+#statement {
+  color: gray;
+}
+
+#footer-img {
+  margin-top: 100px;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+}

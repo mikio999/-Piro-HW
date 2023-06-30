@@ -16,36 +16,32 @@
     <title>Bootstrap</title>
   </head>
   <body data-spy="scroll" data-target="#navbar" data-offset="50">
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
-    >
+    <nav id="navbar" class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Pirogramming</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active text-primary" aria-current="page" href="#"
-              >Kwak-Min-Kyung</a
-            >
-          </li>
-          <li class="nav-item text-light">
-            <a class="nav-link active" aria-current="page" href="#intro"
-              >Intro</a
-            >
-          </li>
-          <li class="nav-item text-light">
-            <a class="nav-link" aria-current="page" href="#highlights"
-              >Highlights</a
-            >
-          </li>
-          <li class="nav-item text-light">
-            <a class="nav-link" aria-current="page" href="#gallery">Gallery</a>
-          </li>
-          <li class="nav-item text-light">
-            <a class="nav-link" aria-current="page" href="#contact">Contact</a>
-          </li>
-        </ul>
-        <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#aboutModal">About</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-primary" aria-current="page" href="#">Kwak-Min-Kyung</a>
+            </li>
+            <li class="nav-item text-light">
+              <a class="nav-link active" aria-current="page" href="#intro">Intro</a>
+            </li>
+            <li class="nav-item text-light">
+              <a class="nav-link" aria-current="page" href="#highlights">Highlights</a>
+            </li>
+            <li class="nav-item text-light">
+              <a class="nav-link" aria-current="page" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item text-light">
+              <a class="nav-link" aria-current="page" href="#contact">Contact</a>
+            </li>
+          </ul>
+          <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">About</button>
+        </div>
       </div>
     </nav>
     <!-- aboutModal -->

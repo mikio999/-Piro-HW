@@ -135,7 +135,19 @@
         ></div>
         <div class="d-flex flex-column justify-content-center mt-5">
           <ul class="list-group list-group-horizontal" style="list-style: none">
-            <li style="width: 30vw">
+            <style>
+              @media (max-width: 1000px) {
+                .list-group-horizontal {
+                  flex-wrap: wrap;
+                }
+                .list-group-horizontal li {
+                  width: 100%;
+                  margin-bottom: 100px;
+                }
+              }
+            </style>
+            
+            <li class ="w-100">
               <div class="d-flex justify-content-center">
                 <img
                   src="./img/computer.png"
@@ -156,7 +168,7 @@
                 Your site looks good everywhere
               </div>
             </li>
-            <li style="width: 30vw">
+            <li class ="w-100 w-md-30">
               <div class="d-flex justify-content-center">
                 <img
                   src="./img/check-circle.png"
@@ -177,7 +189,7 @@
                 Easy to theme and customize with SASS
               </div>
             </li>
-            <li style="width: 30vw">
+            <li class ="w-100 w-md-30">
               <div class="d-flex justify-content-center">
                 <img src="./img/star.png" class="mb-2" style="width: 125px" />
               </div>
@@ -195,7 +207,7 @@
               </div>
             </li>
           </ul>
-          
+        </div>
       </section>
       <section id="gallery">
         <!-- Content for Gallery section -->
@@ -245,6 +257,35 @@
         </div>
       </div>
       </section>
+      <style>
+        @media (max-width: 1000px) {
+          #gallery {
+            margin-top: 200px;
+          }
+          #gallery .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+          }
+          
+          #gallery .col-md-4 {
+            width: 100%;
+
+          }
+        }
+        @media (max-width: 700px) {
+          
+          #gallery .row {
+            display: flex;
+            flex-direction: column;
+
+          }
+          #gallery .col-md-4 {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+          }}
+      </style>
       <section id="contact" class = "d-flex flex-column justify-content-center"style="height:1000px">
         <!-- Content for Contact section -->
         
@@ -259,10 +300,10 @@
           style="width: 90vw; border-bottom: 1.5px rgb(72, 71, 71) solid"
         ></div>
         <div class="container">
-            <form class="row g-3 d-flex justify-content-center">
+            <form id="formbox" class="row g-3 d-flex justify-content-center">
               <div class="col-auto" style="width:30vw">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="name" />
+                <input type="text" class="form-control" id="name" placeholder="name"/>
               </div>
               <div class="col-auto" style="width:30vw">
                 <label for="email" class="form-label">Email</label>
@@ -270,7 +311,7 @@
               </div>
               <div class="col-auto" style="width:30vw">
                 <label for="phone" class="form-label">Phone</label>
-                <input type="tel" class="form-control" id="phone" placeholder="phone" />
+                <input type="tel" class="form-control" id="phone" placeholder="phone"/>
               </div>
               <div class="col-12">
                 <label for="message" class="form-label">Message</label>
@@ -278,6 +319,18 @@
               </div>
               <button type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#submitModal" style="width: 300px">Send</button>
             </form>
+            <style>
+              @media (max-width: 1000px) {
+                #formbox {
+                  display:flex;
+                  flex-direction: column;
+                }
+                .form-control {
+                  width: 85vw
+                }
+
+              }
+            </style>
           </div>
            <!-- Modal -->
           <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="submitModalLabel" aria-hidden="true">
@@ -300,8 +353,8 @@
       </section>
           <!--footer-->
           <footer class="bg-dark text-white p-3 pt-4 mt-5">
-            <div class="container">
-              <div class="row">
+            <div class="container" id="footerwrap">
+              <div class="row" id="footercontent">
                 <div class="col">
                   <h5 class="text-primary">Information</h5>
                   <ul class="list-unstyled">
@@ -332,6 +385,14 @@
               </div>
             </div>
           </footer>
+          <style>
+            @media (max-width: 1000px) {
+              #footercontent, #footerwrap {
+                display:flex;
+                flex-direction: column;
+              }}
+          </style>
+          
     </main>
     <!-- Bootstrap Bundle with Popper -->
 

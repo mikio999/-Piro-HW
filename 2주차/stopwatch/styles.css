@@ -124,4 +124,5 @@ header img {
 
 .trash-remove:hover {
   cursor: pointer;
+  background-color: white;
 }

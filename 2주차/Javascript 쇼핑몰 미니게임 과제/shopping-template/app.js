@@ -1,9 +1,11 @@
+console.log("hello");
 // Fetch the items from the JSON file
-const loadItems = () => {
-  return fetch("data/data.json")
+function loadItems() {
+  return fetch(`../shopping-template/data/data.json`)
     .then((response) => response.json())
     .then((json) => console.log(json));
-};
+}
+console.log(data / data.json);
 
 // main
 loadItems()

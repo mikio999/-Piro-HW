@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const recordContainer = document.querySelector(".record-box");
 
-  recordContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("check-btn")) {
-      const checkBtn = event.target;
+  recordContainer.addEventListener("click", (e) => {
+    if (e.target.classList.contains("check-btn")) {
+      const checkBtn = e.target;
       if (checkBtn.classList.contains("changed")) {
         checkBtn.src = "rec.png";
         checkBtn.classList.remove("changed");
@@ -79,9 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const trashRemove = document.querySelector(".trash-remove");
   trashRemove.addEventListener("click", () => {
-    console.log("trash - clicked");
     const recordTimes = document.querySelectorAll(".record-time");
-    console.log(recordTimes);
     recordTimes.forEach((recordTime) => {
       const checkBtn = recordTime.querySelector(".check-btn");
       if (checkBtn.src.endsWith("button.png")) {

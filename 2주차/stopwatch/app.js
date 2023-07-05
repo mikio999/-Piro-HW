@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const createRecord = (time) => {
     const recordContainer = document.querySelector(".record-box");
 
-    const recordElement = document.createElement("div");
+    const recordElement = document.createElement("li");
     recordElement.className = "record-time";
 
     const imageElement = document.createElement("img");
@@ -80,10 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const trashRemove = document.querySelector(".trash-remove");
   trashRemove.addEventListener("click", (event) => {
-    const recordTime = event.target.closest(".record-time");
-    const checkBtn = recordTime.querySelector(".check-btn");
-    if (checkBtn && checkBtn.src.includes("button.png")) {
-      recordContainer.removeChild(recordTime);
-    }
+    console.log("trash - clicked");
+    const recordTimes = document.querySelectorAll(".record-time");
+    console.log(recordTimes);
+    recordTimes.forEach((recordTime) => {
+      const checkBtn = recordTime.querySelector(".check-btn");
+      if (checkBtn.src.endsWith("button.png")) {
+        recordTime.remove();
+      }
+    });
   });
 });

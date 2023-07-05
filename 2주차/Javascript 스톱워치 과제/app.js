@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const startTimer = () => {
     startTime = Date.now();
     timer = setInterval(updateTimer, 1000);
-    console.log(startTime);
   };
 
   const updateTimer = () => {
@@ -93,42 +92,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const checkAll = document.querySelector("#check-all-btn");
-// checkAll.addEventListener("click", (e) => {
-//   console.log("클릭!");
-//   if (e.target.classList.contains("check-btn")) {
-//     const checkAllBtn = e.target;
-//     if (checkAllBtn.classList.contains("changed")) {
-//       checkAllBtn.src = "rec.png";
-//       checkAllBtn.classList.remove("changed");
-//       console.log("전체 취소");
-//     } else {
-//       checkAllBtn.src = "button.png";
-//       checkAllBtn.classList.add("changed");
-//       console.log("전체 지정");
-//     }
-//   }
-// });
-
 checkAll.addEventListener("click", () => {
   const checkBtns = document.querySelectorAll(".check-btn");
 
   if (checkAll.classList.contains("changed")) {
-    // 전체 취소
     checkBtns.forEach((checkBtn) => {
       checkBtn.src = "rec.png";
       checkBtn.classList.remove("changed");
     });
     checkAll.src = "rec.png";
     checkAll.classList.remove("changed");
-    console.log("전체 취소");
   } else {
-    // 전체 지정
     checkBtns.forEach((checkBtn) => {
       checkBtn.src = "button.png";
       checkBtn.classList.add("changed");
     });
     checkAll.src = "button.png";
     checkAll.classList.add("changed");
-    console.log("전체 지정");
   }
 });

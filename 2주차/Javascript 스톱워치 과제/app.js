@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const trashRemove = document.querySelector(".trash-remove");
-  trashRemove.addEventListener("click", (event) => {
+  trashRemove.addEventListener("click", () => {
     console.log("trash - clicked");
     const recordTimes = document.querySelectorAll(".record-time");
     console.log(recordTimes);
@@ -90,4 +90,45 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+});
+
+const checkAll = document.querySelector("#check-all-btn");
+// checkAll.addEventListener("click", (e) => {
+//   console.log("클릭!");
+//   if (e.target.classList.contains("check-btn")) {
+//     const checkAllBtn = e.target;
+//     if (checkAllBtn.classList.contains("changed")) {
+//       checkAllBtn.src = "rec.png";
+//       checkAllBtn.classList.remove("changed");
+//       console.log("전체 취소");
+//     } else {
+//       checkAllBtn.src = "button.png";
+//       checkAllBtn.classList.add("changed");
+//       console.log("전체 지정");
+//     }
+//   }
+// });
+
+checkAll.addEventListener("click", () => {
+  const checkBtns = document.querySelectorAll(".check-btn");
+
+  if (checkAll.classList.contains("changed")) {
+    // 전체 취소
+    checkBtns.forEach((checkBtn) => {
+      checkBtn.src = "rec.png";
+      checkBtn.classList.remove("changed");
+    });
+    checkAll.src = "rec.png";
+    checkAll.classList.remove("changed");
+    console.log("전체 취소");
+  } else {
+    // 전체 지정
+    checkBtns.forEach((checkBtn) => {
+      checkBtn.src = "button.png";
+      checkBtn.classList.add("changed");
+    });
+    checkAll.src = "button.png";
+    checkAll.classList.add("changed");
+    console.log("전체 지정");
+  }
 });

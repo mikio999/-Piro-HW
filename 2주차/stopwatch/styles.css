@@ -87,6 +87,7 @@ header img {
 .record-box {
   display: flex;
   flex-direction: column;
+  margin-left: -40px;
 }
 
 .recording-line {

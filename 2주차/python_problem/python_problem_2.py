@@ -48,6 +48,27 @@ def Menu2():
 ##############  menu 3
 # def Menu3(#매개변수가 필요한지 판단 후 코딩할 것) :
     #출력 코딩
+def Menu3():
+    if not student_data:
+        print("No student data!")
+    else:
+        all_grades_assigned = True
+        for name in student_data:
+            if "grade" not in student_data[name]:
+                all_grades_assigned = False
+                break
+        
+        if not all_grades_assigned:
+            print("There is a student who didn't get grade")
+        else:
+            print("----------------------------")
+            print("name     mid   final   grade")
+            print("----------------------------")
+            for name in student_data:
+                mid_score = student_data[name]["mid_score"]
+                final_score = student_data[name]["final_score"]
+                grade = student_data[name]["grade"]
+                print(f"{name}    {mid_score}     {final_score}     {grade}")
 
 ##############  menu 4
 # def Menu4(#매개변수가 필요한지 판단 후 코딩할 것):
@@ -72,7 +93,8 @@ while True :
 
       elif choice == "2" :
         Menu2()
-    # elif choice == "3" :
+      elif choice == "3" :
+        Menu3()
     #     #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
     #     #예외사항이 아닌 경우 3번 함수 호출
 

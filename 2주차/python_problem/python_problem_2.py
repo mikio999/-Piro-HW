@@ -73,6 +73,17 @@ def Menu3():
 ##############  menu 4
 # def Menu4(#매개변수가 필요한지 판단 후 코딩할 것):
     #학생 정보 삭제하는 코딩
+def Menu4():
+  if not student_data:
+      print("No student data!")
+      return
+
+  delete_name = input("Enter the name to delete:")
+  if delete_name not in student_data:
+      print("No Exist Name!")
+  else:
+      del student_data[delete_name]
+      print(f"{delete_name} student information is deleted.")
 
 #학생 정보를 저장할 변수 초기화
 print("*Menu*******************************")
@@ -98,7 +109,8 @@ while True :
     #     #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
     #     #예외사항이 아닌 경우 3번 함수 호출
 
-    # elif choice == "4" :
+      elif choice == "4" :
+          Menu4()
     #     #예외사항 처리(저장된 학생 정보의 유무)
     #     #예외사항이 아닌 경우, 삭제할 학생 이름 입력 받기
     #     #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력

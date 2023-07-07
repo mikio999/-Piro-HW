@@ -16,11 +16,12 @@ while num < 31:
     print(f"{player} : {i}")
 
   if num >= 31:
+    winner = "playerA" if player == "playerB" else "playerB"
+    print(f"{winner} win!3")
     break
+
 
   if player == "playerB":
     player = "playerA"
   else:
     player="playerB"
-
- 

@@ -103,7 +103,7 @@ def edit_review(request, pk):
             review.author = request.user
             review.save()
 
-            return redirect('/my_review')
+            return redirect('review_list_info', pk=pk)
 
      else :
 

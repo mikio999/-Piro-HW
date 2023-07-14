@@ -34,24 +34,38 @@
 
       nav {
         width: 100%;
-        height: 60px;
+        height: 70px;
         background-color: rgb(42, 42, 71);
         line-height: 50px;
       }
 
       nav img {
         width: 200px;
+        margin-top: 5px;
+        margin-left: 20px;
       }
 
+      nav ul li a {
+        color: rgb(234, 208, 208);
+      }
       nav ul li {
-        margin-right: 10px;
+        margin-top: 10px;
+        margin-right: 15px;
         list-style-type: none;
         display: inline-block;
         color: rgb(234, 208, 208);
+        font-size: 17px;
+        border: 1px solid white;
+        padding: 0px 3px;
       }
-
+      nav ul li:hover {
+        background-color: antiquewhite;
+        color: black;
+        cursor: pointer;
+      }
       nav ul {
         float: right;
+        margin-right: 30px;
       }
 
       .content-box {
@@ -64,7 +78,7 @@
         margin-right: 20px;
       }
 
-      h1 {
+      .content-box h1 {
         color: white;
         border-bottom: white 2px solid;
         padding: 15px;
@@ -78,10 +92,15 @@
           <img src="https://i.ibb.co/vvjgZb1/logo.png" />
         </a>
         <ul>
-          <li>menu1</li>
-          <li>menu2</li>
-          <li>menu3</li>
-          <li>menu4</li>
+          <a href="/movie_list"><li>영화보기</li></a>
+          {% if user.is_authenticated %}
+          <a href="/logout"> <li>로그아웃</li></a>
+          <a href="/create_review"> <li>리뷰만들기</li></a>
+          <a href="/review_list"> <li>내리뷰보기</li></a>
+          {% else %}
+          <a href="/login"><li>로그인</li></a>
+          <a href="/join"><li>회원가입</li></a>
+          {% endif %}
         </ul>
       </nav>
       <div class="content-box">{% block content %} {% endblock %}</div>

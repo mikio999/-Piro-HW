@@ -17,15 +17,22 @@
     background-color: rgb(42, 42, 71);
   }
   .movie_title {
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border-bottom: 1px solid white;
     font-size: 50px;
   }
+
+  .movie_title h1 {
+    border: none;
+  }
   .movie_title span {
+    padding-top: 30px;
     font-size: 30px;
-    margin-left: 900px;
   }
   .first_info {
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
@@ -50,9 +57,10 @@
 </style>
 <section class="review_info">
   <div class="title_section">
-    <h1 class="movie_title">
-      {{board_contents.title}}<span>{{board_contents.year}}</span>
-    </h1>
+    <div class="movie_title">
+      <h1>{{board_contents.title}}</h1>
+      <span>{{board_contents.year}}</span>
+    </div>
   </div>
   <div class="first_info">
     <div class="movie_img">

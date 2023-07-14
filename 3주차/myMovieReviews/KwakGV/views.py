@@ -89,3 +89,27 @@ def my_review(request) :
     reviews = myText.objects.filter(author=request.user)
 
     return render(request,'KwakGV/my_review.html', {'reviews':reviews})
+
+def edit_review(request, pk):
+     review = get_object_or_404(myText, pk=pk)
+
+     if request.method == 'POST' :
+
+        form = ReviewForm(request.POST,request.FILES, instance=review)
+
+        if form.is_valid() :
+
+            review = form.save(commit=False)
+            review.author = request.user
+            review.save()
+
+            return redirect('/my_review')
+
+     else :
+
+        form = ReviewForm(instance=review)
+
+     return render(request, 'KwakGV/edit_review.html',
+                  {'review_form': form,
+                   'primary_key' : pk}
+                  )

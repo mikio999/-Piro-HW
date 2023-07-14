@@ -1,0 +1,40 @@
+<style>
+  .review_form_wrap {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(42, 42, 71);
+  }
+  .review_form_wrap button {
+    color: black;
+    padding: 5px;
+    width: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+  }
+  .review_form_box {
+    width: 800px;
+    margin: auto;
+    padding-left: 100px;
+    padding-top: 20px;
+    color: gray;
+  }
+</style>
+{% extends 'KwakGV/base.html'%} {% block content %}
+
+<div style="width: 700px; margin: auto; padding: 40px">
+  <form
+    action="{% url 'edit_review' pk=primary_key %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %} {{review_form.as_p}}
+
+    <button type="submit">저장</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,16 +1,18 @@
 {% extends 'KwakGV/base.html'%} {% block content %}
-<h2>Movie List</h2>
+<h1>Movie List</h1>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   {% for text in texts %}
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
-      <img src="{{text.img_url}}" alt="{{text.img_url}}" />
-      <div class="caption">
-        <h3>{{text.title}}</h3>
-        <span>{{text.star_rate}}</span>
-        <div>{{text.genre}}</div>
-        <div>{{text.year}}</div>
-      </div>
+      <a href="{%url 'review_list_info' pk=text.pk%}">
+        <img src="{{text.img_url}}" alt="{{text.img_url}}" />
+        <div class="caption">
+          <h3>{{text.title}}</h3>
+          <span>{{text.star_rate}}</span>
+          <div>{{text.genre}}</div>
+          <div>{{text.year}}</div>
+        </div>
+      </a>
     </div>
   </div>
   {% endfor %}

@@ -1,0 +1,102 @@
+{% extends 'KwakGV/base.html'%} {% block content %}
+
+<style>
+  div {
+    float: left;
+  }
+  .left {
+    width: 30%;
+  }
+
+  .left ul li {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid white;
+    color: white;
+    list-style-type: none;
+    width: 300px;
+  }
+
+  .left ul li:hover {
+    cursor: pointer;
+    background-color: rgb(42, 42, 71);
+  }
+
+  .right {
+    width: 70%;
+  }
+
+  .musical_movie {
+    display: hidden;
+  }
+</style>
+<div class="left">
+  <ul>
+    <li id="musical_movie">Romance/Musical</li>
+    <li id="animation_movie">Animation/Drama</li>
+    <li>Action</li>
+    <li>Comedy</li>
+    <li>SF</li>
+  </ul>
+</div>
+<div class="right">
+  <div class="row row-cols-1 row-cols-md-3 g-4 all">
+    {% for text in texts %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <a href="{%url 'review_list_info' pk=text.pk%}">
+          <img src="{{text.img_url}}" alt="{{text.img_url}}" />
+          <div class="caption">
+            <h3>{{text.title}}</h3>
+            <span>{{text.star_rate}}</span>
+            <div>{{text.genre}}</div>
+            <div>{{text.year}}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 musical_movie">
+    {% for text in musical_movie %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{text.img_url}}" alt="{{text.img_url}}" />
+        <div class="caption">
+          <h3>{{text.title}}</h3>
+          <span>{{text.star_rate}}</span>
+          <div>{{text.genre}}</div>
+          <div>{{text.year}}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 animation_movie">
+    {% for text in animiation_movie %}
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{{text.img_url}}" alt="{{text.img_url}}" />
+        <div class="caption">
+          <h3>{{text.title}}</h3>
+          <span>{{text.star_rate}}</span>
+          <div>{{text.genre}}</div>
+          <div>{{text.year}}</div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  $("#musical_movie").click(function () {
+    $(".all").hide();
+    $(".musical_movie").show();
+  });
+
+  $("#animation_movie").click(function () {
+    $(".all").hide();
+    $(".animation_movie").show();
+  });
+</script>
+{% endblock %}

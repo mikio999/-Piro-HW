@@ -13,6 +13,9 @@ class myText(models.Model) :
     genre = models.CharField(max_length=200,  null="True")
     star_rate = models.CharField(max_length=200 ,  null="True")
     img_url = models.CharField(max_length=200)
+    actor = models.CharField(max_length=200, null="True")
+    director = models.CharField(max_length=200, null="True")
+    running_time = models.CharField(max_length=200, null="True")
     board_text = RichTextUploadingField(null=True)
 
     def publish(self):

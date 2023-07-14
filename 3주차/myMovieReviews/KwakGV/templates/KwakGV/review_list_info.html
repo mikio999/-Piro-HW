@@ -1,0 +1,89 @@
+{% extends 'KwakGV/base.html' %} {% block content %}
+<style>
+  .review_info {
+    margin-top: 30px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .contents {
+    padding: 10px;
+    width: 1200px;
+    background-color: rgb(42, 42, 71);
+  }
+  .movie_title {
+    padding: 10px;
+    border-bottom: 1px solid white;
+    font-size: 50px;
+  }
+  .movie_title span {
+    font-size: 30px;
+    margin-left: 900px;
+  }
+  .first_info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .movie_information > div {
+    margin-top: 30px;
+    font-size: 25px;
+  }
+  .movie_option {
+    color: antiquewhite;
+    margin-right: 50px;
+  }
+  .movie_review_content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+  .movie_review_content h2 {
+    padding-right: auto;
+    border-bottom: 1px solid white;
+    padding-bottom: 15px;
+  }
+</style>
+<section class="review_info">
+  <div class="title_section">
+    <h1 class="movie_title">
+      {{board_contents.title}}<span>{{board_contents.year}}</span>
+    </h1>
+  </div>
+  <div class="first_info">
+    <div class="movie_img">
+      <img src="{{board_contents.img_url}}" width="400" />
+    </div>
+    <div class="movie_information">
+      <div class="movie_director">
+        <span class="movie_option">감독</span
+        ><span class="movie_option_info">{{board_contents.director}}</span>
+      </div>
+      <div class="movie_actor">
+        <span class="movie_option">주연</span
+        ><span class="movie_option_info">{{board_contents.actor}}</span>
+      </div>
+      <div class="movie_genre">
+        <span class="movie_option">장르</span
+        ><span class="movie_option_info">{{board_contents.genre}}</span>
+      </div>
+      <div class="movie_star_rate">
+        <span class="movie_option">별점</span
+        ><span class="movie_option_info">{{board_contents.star_rate}}</span>
+      </div>
+      <div class="movie_running_time">
+        <span class="movie_option">러닝타임</span
+        ><span class="movie_option_info">{{board_contents.running_time}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="movie_review_content">
+    <h2>영화 리뷰</h2>
+    <div class="contents">{{board_contents.board_text | safe}}</div>
+  </div>
+</section>
+{%endblock%}

@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    여기는 홈! {{texts}}
-  </body>
-</html>
+{% extends 'KwakGV/base.html'%} {% block content %}
+<h2>Movie List</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for text in texts %}
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="{{text.img_url}}" alt="{{text.img_url}}" />
+      <div class="caption">
+        <h3>{{text.title}}</h3>
+        <span>{{text.star_rate}}</span>
+        <div>{{text.genre}}</div>
+        <div>{{text.year}}</div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

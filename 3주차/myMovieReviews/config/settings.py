@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'KwakGV',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -104,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'EN'
+LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'UTF-8'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -122,3 +124,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'

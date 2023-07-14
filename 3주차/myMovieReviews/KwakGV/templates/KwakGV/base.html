@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KwakGV</title>
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
+
+    <!-- 부가적인 테마 -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"
+    />
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #main {
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(72, 72, 98);
+      }
+
+      nav {
+        width: 100%;
+        height: 60px;
+        background-color: rgb(42, 42, 71);
+        line-height: 50px;
+      }
+
+      nav > img {
+        width: 200px;
+      }
+
+      nav ul li {
+        margin-right: 10px;
+        list-style-type: none;
+        display: inline-block;
+        color: rgb(234, 208, 208);
+      }
+
+      nav ul {
+        float: right;
+      }
+
+      .content-box {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <nav>
+        <img src="https://i.ibb.co/vvjgZb1/logo.png" />
+        <ul>
+          <li>menu1</li>
+          <li>menu2</li>
+          <li>menu3</li>
+          <li>menu4</li>
+        </ul>
+      </nav>
+      <div class="content-box">{% block content %} {% endblock %}</div>
+    </div>
+  </body>
+</html>

@@ -84,3 +84,8 @@ def create_review(request) :
 
      review_form = ReviewForm()
      return render(request, 'KwakGV/create_review.html', {'review_form':review_form})
+
+def my_review(request) :
+    reviews = myText.objects.filter(author=request.user)
+
+    return render(request,'KwakGV/my_review.html', {'reviews':reviews})

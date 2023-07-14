@@ -92,11 +92,11 @@
           <img src="https://i.ibb.co/vvjgZb1/logo.png" />
         </a>
         <ul>
-          <a href="/movie_list"><li>영화보기</li></a>
+          <a href="/"><li>영화보기</li></a>
           {% if user.is_authenticated %}
           <a href="/logout"> <li>로그아웃</li></a>
           <a href="/create_review"> <li>리뷰만들기</li></a>
-          <a href="/review_list"> <li>내리뷰보기</li></a>
+          <a href="/my_review"> <li>내리뷰보기</li></a>
           {% else %}
           <a href="/login"><li>로그인</li></a>
           <a href="/join"><li>회원가입</li></a>

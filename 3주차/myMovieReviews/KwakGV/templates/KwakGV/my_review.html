@@ -9,7 +9,7 @@
 </style>
 <h1>Movie List</h1>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  {% for text in texts %}
+  {% for text in reviews %}
   <div class="col-sm-6 col-md-4">
     <div class="thumbnail">
       <a href="{%url 'review_list_info' pk=text.pk%}">

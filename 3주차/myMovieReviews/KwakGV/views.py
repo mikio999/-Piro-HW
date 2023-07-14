@@ -113,3 +113,14 @@ def edit_review(request, pk):
                   {'review_form': form,
                    'primary_key' : pk}
                   )
+
+from django.shortcuts import get_object_or_404
+
+def delete_review(request, pk):
+    review = get_object_or_404(myText, pk=pk)
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect('/')  # 리뷰 삭제 후 리뷰 목록 페이지로 리디렉션
+
+    return render(request, 'KwakGV/delete_review.html', {'review': review})

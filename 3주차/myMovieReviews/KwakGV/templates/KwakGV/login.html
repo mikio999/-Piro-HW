@@ -1,7 +1,13 @@
 {% extends 'KwakGV/base.html'%} {% block content %}
 
 <div
-  style="width: 500px; margin: auto; margin-top: 200px; margin-bottom: 200px"
+  style="
+    width: 500px;
+    height: 1000px;
+    margin: auto;
+    margin-top: 200px;
+    margin-bottom: 200px;
+  "
 >
   <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}

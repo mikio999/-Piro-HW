@@ -8,6 +8,7 @@ urlpatterns = [
     path('create_review/', views.create_review, name="create_review"),
     path('my_review/', views.my_review, name="my_review"),
     path('edit_review/<int:pk>', views.edit_review, name="edit_review"),
+    path('delete_review/<int:pk>', views.delete_review, name="delete_review"),
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('join/', views.join, name='join'),

@@ -1,0 +1,32 @@
+nav {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  opacity: calc(0.8);
+}
+
+#logo {
+  text-decoration: none;
+  margin: 10px;
+  width: 200px;
+  font-weight: bold;
+}
+
+nav ul {
+  width: 500px;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+  margin: 10px;
+  color: skyblue;
+}
+
+nav ul li:hover {
+  cursor: pointer;
+  color: greenyellow;
+}

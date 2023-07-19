@@ -5,6 +5,13 @@
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
+.option_select {
+  padding: 5px;
+  border-radius: 5px;
+  font-family: "NEXON Lv1 Gothic OTF";
+}
+
 .card a {
   text-decoration: none;
 }
@@ -40,8 +47,8 @@
 .detail-right {
   justify-content: center;
   flex-direction: column;
-  margin: 20px 50px;
-  width: 400px;
+  margin: 20px 30px;
+  width: 380px;
 }
 
 .title-section {
@@ -67,6 +74,7 @@
 }
 
 .detail-buttons {
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;

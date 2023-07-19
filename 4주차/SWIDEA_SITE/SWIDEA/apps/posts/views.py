@@ -1,15 +1,23 @@
 from django.shortcuts import redirect,render,get_object_or_404
 from django.core.paginator import Paginator
+from django.db.models import Count
 from .models import MyDev,MyIdea
 from .forms import RegisterForm
 
 # Create your views here.
 def idea_list(request):
+    sort = request.GET.get('sort')
     ideas = MyIdea.objects.filter()
-    # paginator = Paginator(ideas, 4)
-    # page_number = request.GET.get('page')
-    # page_obj = paginator.get_page(page_number)
-    # return render(request, 'posts/idea_list.html',{'ideas': ideas}, {'page_obj': page_obj})
+
+    if sort == 'latest':
+        ideas = ideas.order_by('-id')
+    elif sort == 'oldest':
+        ideas = ideas.order_by('id')
+    elif sort == 'name':
+        ideas = ideas.order_by('title')
+    elif sort == 'liked':
+        ideas = ideas.filter(liked_by=request.user)
+
     return render(request, 'posts/idea_list.html',{'ideas': ideas})
 
 def idea_detail(request, pk) :
@@ -24,7 +32,7 @@ def idea_register(request) :
           form = RegisterForm(request.POST, request.FILES)
           if form.is_valid() :
                print('create_review_POST2')
-               MyIdea = form.save(commit=False)
+               MyIdea = form.save()
                MyIdea.save()
                return redirect('/')
 

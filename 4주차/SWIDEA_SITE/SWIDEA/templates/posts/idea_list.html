@@ -1,11 +1,20 @@
 {% extends 'posts/base.html' %} {% block content %}
 <div class="idea_list_wrap">
-  <h1 class="main_title">Idea List</h1>
-  <div class="sub_title">나의 아이디어를 잊지 말고 기록해보세요.</div>
+    <h1 class="main_title">Idea List</h1>
+    <div class="sub_title">나의 아이디어를 잊지 말고 기록해보세요.</div>
+  <form action="{% url 'idea_list' %}" method="get" style="margin-left:auto; margin-right: 10px;">
+    <select name="sort" onchange="this.form.submit()" class="option_select">
+      <option value="">정렬 기준 선택</option>
+      <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
+      <option value="oldest" {% if sort == 'oldest' %}selected{% endif %}>등록순</option>
+      <option value="name" {% if sort == 'name' %}selected{% endif %}>이름순</option>
+      <option value="liked" {% if sort == 'liked' %}selected{% endif %}>찜하기순</option>
+    </select>
+  </form>
 </div>
 <div class="row row-cols-1 row-cols-md-4">
   {% for idea in ideas %}
-  <div class="col mt-4">
+  <div class="col mt-2">
     <div
       class="card"
       style="width: 17rem; align-items: center; margin-left: 5px"
@@ -14,7 +23,7 @@
         src="{{ idea.image.url }}"
         alt="{{ idea.image.url }}"
         class="card-img-top"
-        style="height: 12rem; width: 12rem"
+        style="height: 12rem; width: 13rem"
       />
       <div class="card-body">
         <a href="{%url 'idea_detail' pk=idea.pk%}"

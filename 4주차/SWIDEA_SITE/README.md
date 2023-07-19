@@ -1,6 +1,6 @@
 # 아이디어 관리 사이트
 
-![idea_list](../imgs/idea_list.png)
+![idea_list](imgs/idea_list.png)
 
 ## 구현 한 기능
 

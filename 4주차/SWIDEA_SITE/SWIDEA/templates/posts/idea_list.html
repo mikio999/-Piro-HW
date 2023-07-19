@@ -1,0 +1,38 @@
+{% extends 'posts/base.html' %} {% block content %}
+<div class="idea_list_wrap">
+  <h1 class="main_title">Idea List</h1>
+  <div class="sub_title">나의 아이디어를 잊지 말고 기록해보세요.</div>
+</div>
+<div class="row row-cols-1 row-cols-md-4">
+  {% for idea in ideas %}
+  <div class="col mt-4">
+    <div class="card" style="width: 17rem; align-items: center">
+      <img
+        src="{{ idea.image.url }}"
+        alt="{{ idea.image.url }}"
+        class="card-img-top"
+        style="height: 12rem; width: 12rem"
+      />
+      <div class="card-body">
+        <a href="{%url 'idea_detail' pk=text.pk%}"
+          ><h3 class="card-title">{{ idea.title }}</h3></a
+        >
+        <div class="card-text">
+          <div>{{ idea.devtool }}</div>
+          <div>{{ idea.interest_rate }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<!-- <div class="pagination">
+  {% if page_obj.has_previous %}
+  <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+  {% endif %}
+  <span class="current-page">{{page_obj.number}}</span>
+  {%if page_obj.has_next%}
+  <a href="?page={{page_obj.next_page_number}}">Next</a>
+  {%endif%}
+</div> -->
+{% endblock %}

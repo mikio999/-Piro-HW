@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import MyIdea, MyDev
 
-# Register your models here.
+admin.site.register(MyIdea)
+admin.site.register(MyDev)

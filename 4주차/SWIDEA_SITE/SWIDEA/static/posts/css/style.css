@@ -1,3 +1,5 @@
+@import "./idea.css";
+
 @font-face {
   font-family: "NEXON Lv1 Gothic OTF";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff")
@@ -41,6 +43,7 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  white-space: nowrap;
   background-color: black;
   opacity: calc(0.8);
 }
@@ -69,4 +72,34 @@ nav ul li {
 nav ul li:hover {
   cursor: pointer;
   color: greenyellow;
+}
+
+body {
+  background-image: url("../img/background_img.png");
+  background-color: rgba(0, 0, 0, 0.5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 1;
+}
+.main_title {
+  color: skyblue;
+  font-size: 30px;
+  margin-top: -20px;
+}
+
+.sub_title {
+  color: whitesmoke;
+  font-size: 15px;
+}
+
+.base_box {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 1200px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.5);
 }

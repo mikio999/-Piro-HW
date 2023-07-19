@@ -102,7 +102,8 @@ def devtool_register(request) :
 
 def devtool_detail(request, pk):
     board_contents = get_object_or_404(MyDev, pk=pk)
-    ideas = board_contents.ideas.all()
+    ideas = MyIdea.objects.filter(devtool=board_contents)
+    print(ideas)
     return render(request, 'posts/devtool_detail.html', {'board_contents': board_contents, 'ideas': ideas})
 
 

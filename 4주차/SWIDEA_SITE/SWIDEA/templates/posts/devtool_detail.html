@@ -19,9 +19,13 @@
   <div class="mb-4">
     <h3>> 만들 수 있는 SW 목록</h3>
     <ul>
-      {% for idea in board_contents.ideas.all %}
-      <li>
-        <a href="{% url 'posts:idea_detail' idea.id %}">{{ idea.title }}</a>
+      {% for idea in ideas %}
+      <li class="mt-2">
+        <a
+          href="{% url 'posts:idea_detail' idea.devtool.id %}"
+          style="text-decoration: none; color: black; font-size: 20px"
+          >{{ idea.title}}</a
+        >
       </li>
       {% endfor %}
     </ul>

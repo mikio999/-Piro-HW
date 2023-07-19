@@ -42,7 +42,7 @@ def idea_register(request):
         if form.is_valid():
             my_idea = form.save(commit=False)
             my_idea.save()
-            return redirect('/')
+            return redirect('posts:idea_detail', pk=my_idea.pk)
     else:
         form = RegisterForm()
     return render(request, 'posts/idea_register.html', {'idea_register_form': form})
@@ -92,7 +92,7 @@ def devtool_register(request) :
         if form.is_valid():
             my_dev_tool = form.save(commit=False)
             my_dev_tool.save()
-            return redirect('/devtool_list/')
+            return redirect('posts:devtool_detail', pk=my_dev_tool.pk)
     else:
         devtool_register_form = ToolForm()
         return render(request, 'posts/devtool_register.html', {'devtool_register_form':devtool_register_form})

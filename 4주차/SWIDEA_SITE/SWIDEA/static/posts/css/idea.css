@@ -32,6 +32,7 @@
 
 .idea_detail_box h1 {
   font-family: "MaplestoryOTFBold";
+  white-space: nowrap;
   color: blue;
   margin-right: 30px;
   margin-bottom: 30px;

@@ -26,6 +26,7 @@
 .idea_detail_box h1 {
   font-family: "MaplestoryOTFBold";
   color: blue;
+  margin-right: 30px;
   margin-bottom: 30px;
   padding-bottom: 10px;
   border-bottom: 2px skyblue dotted;
@@ -38,8 +39,20 @@
 
 .detail-right {
   justify-content: center;
+  flex-direction: column;
   margin: 20px 50px;
   width: 400px;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.title-section a {
+  width: 100px;
+  height: 50px;
+  padding-top: 10px;
 }
 
 .detail-content {

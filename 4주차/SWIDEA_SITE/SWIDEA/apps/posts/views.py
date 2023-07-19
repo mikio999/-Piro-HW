@@ -34,3 +34,16 @@ def idea_register(request) :
 def devtool_list(request):
     tools = MyDev.objects.filter()
     return render(request, 'posts/devtool_list.html', {'tools':tools})
+
+def idea_like(request, pk):
+    idea = get_object_or_404(MyIdea, pk=pk)
+    user = request.user
+
+    if user in idea.liked_by.all():
+        # 이미 찜한 상태인 경우 찜 취소
+        idea.liked_by.remove(user)
+    else:
+        # 찜하기
+        idea.liked_by.add(user)
+
+    return redirect('idea_detail', pk=pk)

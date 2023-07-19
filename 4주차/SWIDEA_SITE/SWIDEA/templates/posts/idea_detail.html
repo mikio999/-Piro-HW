@@ -15,7 +15,18 @@
   </div>
 
   <div class="detail-right">
-    <h1>{{board_contents.title}}</h1>
+    <div class="title-section">
+      <h1>{{board_contents.title}}</h1>
+      {% if request.user in board_contents.liked_by.all %}
+      <a href="{% url 'idea_like' pk=board_contents.id %}"
+        ><img src="../../static/posts/img/full_star.png" style="width: 30px"
+      /></a>
+      {% else %}
+      <a href="{% url 'idea_like' pk=board_contents.id %}"
+        ><img src="../../static/posts/img/blank_star.png" style="width: 30px"
+      /></a>
+      {% endif %}
+    </div>
     <div class="detail-content">
       <h4>1. 아이디어 관심도</h4>
       <div>{{board_contents.interest_rate}}</div>

@@ -1,0 +1,20 @@
+{% extends 'posts/base.html' %} {% block content %}
+<div class="idea_list_wrap">
+  <h1 class="main_title">DevTool Register</h1>
+  <div class="sub_title">
+    개발툴 등록 페이지입니다. 자신이 다룰 수 있는 개발툴을 등록해 보세요!
+  </div>
+</div>
+<section class="idea_register_wrap">
+  <form
+    action="{% url 'posts:devtool_register' %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="idea_register_box">
+      {% csrf_token %}{{devtool_register_form.as_p}}
+    </div>
+    <div class="idea-btn-box"><button type="submit">submit</button></div>
+  </form>
+</section>
+{% endblock %}

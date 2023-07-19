@@ -1,9 +1,8 @@
 from django.shortcuts import redirect,render,get_object_or_404
 from django.http import JsonResponse
 from django.core.paginator import Paginator
-from django.db.models import Count
 from .models import MyDev,MyIdea
-from .forms import RegisterForm
+from .forms import RegisterForm, ToolForm
 
 # Create your views here.
 def idea_list(request):
@@ -87,3 +86,43 @@ def idea_delete(request, pk):
 def devtool_list(request):
     tools = MyDev.objects.filter()
     return render(request, 'posts/devtool_list.html', {'tools':tools})
+
+def devtool_register(request) :
+    devtool_register_form = ToolForm()
+    if request.method == 'POST':
+        form = ToolForm(request.POST, request.FILES)
+        if form.is_valid():
+            my_dev_tool = form.save(commit=False)
+            my_dev_tool.save()
+            return redirect('/devtool_list/')
+    else:
+        devtool_register_form = ToolForm()
+        return render(request, 'posts/devtool_register.html', {'devtool_register_form':devtool_register_form})
+    
+
+def devtool_detail(request, pk) :
+    board_contents = get_object_or_404(MyDev, pk=pk)
+    return render(request, 'posts/devtool_detail.html', {'board_contents' : board_contents})
+
+def devtool_modify(request, pk):
+    if request.method == 'GET':
+        post = MyDev.objects.get(id=pk)
+        form = ToolForm(instance=post)
+        ctx = {'form': form, 'pk': pk}
+        return render(request, 'posts/devtool_modify.html', context=ctx)
+    elif request.method == 'POST':
+        post = MyDev.objects.get(id=pk)
+        form = ToolForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('posts:devtool_detail', pk=pk)
+    
+    form = ToolForm(instance=post)
+    ctx = {'form': form, 'pk': pk}
+    return render(request, 'posts/devtool_modify.html', context=ctx)
+
+    
+def devtool_delete(request, pk):
+    tool = MyDev.objects.get(id=pk)
+    tool.delete()
+    return redirect('/devtool_list/')

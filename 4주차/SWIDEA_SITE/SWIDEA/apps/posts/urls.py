@@ -12,4 +12,8 @@ urlpatterns = [
     path('posts/idea_detail/<int:pk>', views.idea_detail, name="idea_detail"),
     path('posts/idea_detail/<int:pk>/like/', views.idea_like, name='idea_like'),
     path('devtool_list/', views.devtool_list, name="devtool_list"),
+    path('posts/devtool_register/', views.devtool_register, name="devtool_register"),
+    path('posts/devtool_detail/<int:pk>', views.devtool_detail, name='devtool_detail'),
+    path('posts/devtool_modify/<int:pk>', views.devtool_modify, name='devtool_modify'),
+    path('posts/devtool_delete/<int:pk>', views.devtool_delete, name="devtool_delete")
 ]

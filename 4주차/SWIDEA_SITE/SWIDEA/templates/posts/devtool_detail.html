@@ -1,0 +1,24 @@
+{% extends 'posts/base.html' %} {% block content %}
+<div class="idea_list_wrap">
+  <h1 class="main_title">DevTool Detail</h1>
+  <div class="sub_title">
+    개발툴 세부내용 페이지입니다. 자신이 다룰 수 있는 개발툴에 대한 상세내용을
+    확인해 보아요.
+  </div>
+</div>
+<div class="idea_detail_box">
+  <div class="detail-buttons">
+    <a
+      class="btn btn-primary"
+      href="{% url 'posts:devtool_modify' board_contents.id%}"
+      >수정</a
+    >
+    <a class="btn btn-success" href="/devtool_list/">목록</a>
+    <a
+      class="btn btn-danger"
+      href="{% url 'posts:devtool_delete' board_contents.id%}"
+      >삭제</a
+    >
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+.devtool_list_box {
+  opacity: 0.8;
+}
+
+.list-group li {
+  display: flex;
+}
+
+.list-group-item h4 {
+  width: 100px;
+  color: darkslateblue;
+}
+
+.list-group-item > a {
+  text-decoration: none;
+}
+
+.list-group-item h4:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.list-group div {
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.list-group div:nth-child(2) {
+  width: 200px;
+}

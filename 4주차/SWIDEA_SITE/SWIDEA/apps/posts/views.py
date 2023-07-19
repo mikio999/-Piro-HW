@@ -8,7 +8,7 @@ from .forms import RegisterForm
 # Create your views here.
 def idea_list(request):
     sort = request.GET.get('sort')
-    ideas = MyIdea.objects.filter()
+    ideas = MyIdea.objects.all()
 
     if sort == 'latest':
         ideas = ideas.order_by('-id')
@@ -19,7 +19,11 @@ def idea_list(request):
     elif sort == 'liked':
         ideas = ideas.filter(liked_by=request.user)
 
-    return render(request, 'posts/idea_list.html',{'ideas': ideas})
+    paginator = Paginator(ideas, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'posts/idea_list.html', {'page_obj': page_obj})
 
 def change_interest_rate(request, pk, rate):
     idea = get_object_or_404(MyIdea, pk=pk)
@@ -51,10 +55,8 @@ def idea_like(request, pk):
     user = request.user
 
     if user in idea.liked_by.all():
-        # 이미 찜한 상태인 경우 찜 취소
         idea.liked_by.remove(user)
     else:
-        # 찜하기
         idea.liked_by.add(user)
 
     return redirect('idea_detail', pk=pk)

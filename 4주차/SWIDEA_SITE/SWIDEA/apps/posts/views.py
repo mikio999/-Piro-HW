@@ -39,10 +39,10 @@ def idea_detail(request, pk) :
 def idea_register(request) :
     print('idea_register')
     if request.method == 'POST' :
-          print('create_review_POST')
+          print('idea_register_POST')
           form = RegisterForm(request.POST, request.FILES)
           if form.is_valid() :
-               print('create_review_POST2')
+               print('idea_register_POST2')
                MyIdea = form.save()
                MyIdea.save()
                return redirect('/')

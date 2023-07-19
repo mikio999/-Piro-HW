@@ -101,3 +101,31 @@
   margin: 0 10px;
   color: gray;
 }
+.pagination-box a:hover {
+  color: black;
+}
+
+.idea_register_wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.idea_register_box {
+  color: white;
+}
+
+.idea-btn-box {
+  margin-left: 150px;
+}
+.idea_register_wrap form button {
+  color: white;
+  width: 200px;
+  border: solid white 1px;
+  border-radius: 10px;
+  background-color: rgba(240, 248, 255, 0.112);
+}
+
+.idea_register_wrap form button:hover {
+  background-color: aliceblue;
+  color: black;
+}

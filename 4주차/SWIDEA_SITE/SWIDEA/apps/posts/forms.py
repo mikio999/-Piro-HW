@@ -11,5 +11,4 @@ class RegisterForm(forms.ModelForm) :
             'content',
             'interest_rate',
             'devtool',
-            'liked_by',
         )

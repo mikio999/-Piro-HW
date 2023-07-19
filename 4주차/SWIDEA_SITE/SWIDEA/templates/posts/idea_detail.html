@@ -6,8 +6,33 @@
     살펴보세요.
   </div>
 </div>
-<div>
-  <h1>제목</h1>
-  {% endfor %}
+<div class="idea_detail_box">
+  <div class="detail-left">
+    <img
+      src="{{board_contents.image.url}}"
+      style="width: 350px; height: 350px"
+    />
+  </div>
+
+  <div class="detail-right">
+    <h1>{{board_contents.title}}</h1>
+    <div class="detail-content">
+      <h4>1. 아이디어 관심도</h4>
+      <div>{{board_contents.interest_rate}}</div>
+    </div>
+    <div class="detail-content">
+      <h4>2. 예상 개발툴</h4>
+      <div>{{board_contents.devtool}}</div>
+    </div>
+    <div class="detail-content">
+      <h4>3. 아이디어 설명</h4>
+      <div>{{board_contents.content}}</div>
+    </div>
+  </div>
+  <div class="detail-buttons">
+    <a class="btn btn-primary">수정</a>
+    <a class="btn btn-success">목록</a>
+    <a class="btn btn-danger">삭제</a>
+  </div>
 </div>
 {% endblock %}

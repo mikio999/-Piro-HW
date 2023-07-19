@@ -6,7 +6,10 @@
 <div class="row row-cols-1 row-cols-md-4">
   {% for idea in ideas %}
   <div class="col mt-4">
-    <div class="card" style="width: 17rem; align-items: center">
+    <div
+      class="card"
+      style="width: 17rem; align-items: center; margin-left: 5px"
+    >
       <img
         src="{{ idea.image.url }}"
         alt="{{ idea.image.url }}"
@@ -14,7 +17,7 @@
         style="height: 12rem; width: 12rem"
       />
       <div class="card-body">
-        <a href="{%url 'idea_detail' pk=text.pk%}"
+        <a href="{%url 'idea_detail' pk=idea.pk%}"
           ><h3 class="card-title">{{ idea.title }}</h3></a
         >
         <div class="card-text">

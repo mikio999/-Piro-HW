@@ -100,26 +100,26 @@ def devtool_register(request) :
         return render(request, 'posts/devtool_register.html', {'devtool_register_form':devtool_register_form})
     
 
-def devtool_detail(request, pk) :
+def devtool_detail(request, pk):
     board_contents = get_object_or_404(MyDev, pk=pk)
-    return render(request, 'posts/devtool_detail.html', {'board_contents' : board_contents})
+    ideas = board_contents.ideas.all()
+    return render(request, 'posts/devtool_detail.html', {'board_contents': board_contents, 'ideas': ideas})
+
 
 def devtool_modify(request, pk):
-    if request.method == 'GET':
-        post = MyDev.objects.get(id=pk)
-        form = ToolForm(instance=post)
-        ctx = {'form': form, 'pk': pk}
-        return render(request, 'posts/devtool_modify.html', context=ctx)
-    elif request.method == 'POST':
-        post = MyDev.objects.get(id=pk)
+    post = get_object_or_404(MyDev, pk=pk)
+
+    if request.method == 'POST':
         form = ToolForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
             return redirect('posts:devtool_detail', pk=pk)
+    else:
+        form = ToolForm(instance=post)
     
-    form = ToolForm(instance=post)
     ctx = {'form': form, 'pk': pk}
     return render(request, 'posts/devtool_modify.html', context=ctx)
+
 
     
 def devtool_delete(request, pk):

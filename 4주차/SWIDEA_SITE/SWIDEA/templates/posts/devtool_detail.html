@@ -6,19 +6,38 @@
     확인해 보아요.
   </div>
 </div>
-<div class="idea_detail_box">
-  <div class="detail-buttons">
-    <a
-      class="btn btn-primary"
-      href="{% url 'posts:devtool_modify' board_contents.id%}"
-      >수정</a
-    >
-    <a class="btn btn-success" href="/devtool_list/">목록</a>
-    <a
-      class="btn btn-danger"
-      href="{% url 'posts:devtool_delete' board_contents.id%}"
-      >삭제</a
-    >
+<div class="devtool_detail_box">
+  <div class="word-line mb-4">
+    <h1 class="mb-2">{{board_contents.name}}</h1>
+    <div class="side-line pb-1">
+      <div style="color: antiquewhite" class="mb-1">
+        {{board_contents.kind}}
+      </div>
+      <div>{{board_contents.content}}</div>
+    </div>
   </div>
+  <div class="mb-4">
+    <h3>> 만들 수 있는 SW 목록</h3>
+    <ul>
+      {% for idea in board_contents.ideas.all %}
+      <li>
+        <a href="{% url 'posts:idea_detail' idea.id %}">{{ idea.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="devtool-detail-buttons">
+  <a
+    class="btn btn-primary"
+    href="{% url 'posts:devtool_modify' board_contents.id%}"
+    >수정</a
+  >
+  <a class="btn btn-success" href="/devtool_list/">목록</a>
+  <a
+    class="btn btn-danger"
+    href="{% url 'posts:devtool_delete' board_contents.id%}"
+    >삭제</a
+  >
 </div>
 {% endblock %}

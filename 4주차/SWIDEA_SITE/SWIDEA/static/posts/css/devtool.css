@@ -28,3 +28,47 @@
 .list-group div:nth-child(2) {
   width: 200px;
 }
+
+.devtool_detail_box {
+  padding-left: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1000px;
+  height: 500px;
+  border: white 2px solid;
+}
+
+.side-line {
+  border-left: solid darkblue 3px;
+  padding-left: 10px;
+}
+
+.word-line {
+  border-bottom: solid white 2px;
+  padding-bottom: 10px;
+  width: 900px;
+}
+
+.devtool_detail_box h1 {
+  color: darkblue;
+  font-family: "NEXONFootballGothicBA1";
+  font-size: 6rem;
+}
+
+.devtool_detail_box h3 {
+  color: darkblue;
+  font-family: "NEXONFootballGothicBA1";
+}
+
+.word-line {
+  margin-bottom: 10px;
+}
+
+.devtool-detail-buttons {
+  display: flex;
+  justify-content: center;
+}
+.devtool-detail-buttons a {
+  width: 100px;
+  margin: 10px;
+}

@@ -33,7 +33,12 @@
     </div>
     <div class="detail-content">
       <h4>2. 예상 개발툴</h4>
-      <div>{{board_contents.devtool}}</div>
+      <a
+        href="{% url 'posts:devtool_detail' board_contents.devtool.id %}"
+        style="text-decoration: none"
+      >
+        {{board_contents.devtool.name}}
+      </a>
     </div>
     <div class="detail-content">
       <h4>3. 아이디어 설명</h4>

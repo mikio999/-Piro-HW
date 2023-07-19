@@ -12,7 +12,6 @@ function getCookie(name) {
   }
   return cookieValue;
 }
-
 function changeInterestRate(ideaId, increment) {
   const interestRateElement = document.getElementById(
     `interest-rate-${ideaId}`
@@ -20,7 +19,7 @@ function changeInterestRate(ideaId, increment) {
   const currentRate = parseInt(interestRateElement.innerText);
   const newRate = currentRate + increment;
 
-  fetch(`/change_interest_rate/${ideaId}/${newRate}/`, {
+  fetch(`/posts/change_interest_rate/${ideaId}/${newRate}/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

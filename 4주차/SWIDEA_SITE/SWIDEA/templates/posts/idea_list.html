@@ -3,7 +3,7 @@
 <div class="idea_list_wrap">
     <h1 class="main_title">Idea List</h1>
     <div class="sub_title">나의 아이디어를 잊지 말고 기록해보세요.</div>
-  <form action="{% url 'idea_list' %}" method="get" style="margin-left:auto; margin-right: 10px;">
+  <form action="{% url 'posts:idea_list' %}" method="get" style="margin-left:auto; margin-right: 10px;">
     <select name="sort" onchange="this.form.submit()" class="option_select">
       <option value="">정렬 기준 선택</option>
       <option value="latest" {% if sort == 'latest' %}selected{% endif %}>최신순</option>
@@ -27,7 +27,7 @@
         style="height: 12rem; width: 13rem"
       />
       <div class="card-body">
-        <a href="{%url 'idea_detail' pk=idea.pk%}"
+        <a href="{%url 'posts:idea_detail' pk=idea.pk%}"
           ><h3 class="card-title">{{ idea.title }}</h3></a
         >
         <div class="card-text">

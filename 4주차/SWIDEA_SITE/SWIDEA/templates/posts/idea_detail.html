@@ -18,11 +18,11 @@
     <div class="title-section">
       <h1>{{board_contents.title}}</h1>
       {% if request.user in board_contents.liked_by.all %}
-      <a href="{% url 'idea_like' pk=board_contents.id %}"
+      <a href="{% url 'posts:idea_like' pk=board_contents.id %}"
         ><img src="../../static/posts/img/full_star.png" style="width: 30px"
       /></a>
       {% else %}
-      <a href="{% url 'idea_like' pk=board_contents.id %}"
+      <a href="{% url 'posts:idea_like' pk=board_contents.id %}"
         ><img src="../../static/posts/img/blank_star.png" style="width: 30px"
       /></a>
       {% endif %}
@@ -41,9 +41,17 @@
     </div>
   </div>
   <div class="detail-buttons">
-    <a class="btn btn-primary">수정</a>
-    <a class="btn btn-success">목록</a>
-    <a class="btn btn-danger">삭제</a>
+    <a
+      class="btn btn-primary"
+      href="{% url 'posts:idea_modify' board_contents.id%}"
+      >수정</a
+    >
+    <a class="btn btn-success" href="/">목록</a>
+    <a
+      class="btn btn-danger"
+      href="{% url 'posts:idea_delete' board_contents.id%}"
+      >삭제</a
+    >
   </div>
 </div>
 {% endblock %}

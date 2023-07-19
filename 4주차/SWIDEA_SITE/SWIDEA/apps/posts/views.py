@@ -25,6 +25,7 @@ def idea_list(request):
 
     return render(request, 'posts/idea_list.html', {'page_obj': page_obj})
 
+
 def change_interest_rate(request, pk, rate):
     idea = get_object_or_404(MyIdea, pk=pk)
     idea.interest_rate = rate
@@ -59,7 +60,29 @@ def idea_like(request, pk):
     else:
         idea.liked_by.add(user)
 
-    return redirect('idea_detail', pk=pk)
+    return redirect('posts:idea_detail', pk=pk)
+
+def idea_modify(request, pk):
+    if request.method == 'GET':
+        post = MyIdea.objects.get(id=pk)
+        form = RegisterForm(instance=post)    
+        ctx = {'form': form,          
+            'pk': pk}  
+    
+        return render(request, 'posts/idea_modify.html', context=ctx)
+    else:
+        post = MyIdea.objects.get(id=pk)
+        form = RegisterForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():      
+            form.save()
+        
+        return redirect('posts:idea_detail', pk=pk)
+
+def idea_delete(request, pk):
+    idea = MyIdea.objects.get(id=pk)
+    idea.delete()
+    return redirect('/')
+
 
 def devtool_list(request):
     tools = MyDev.objects.filter()

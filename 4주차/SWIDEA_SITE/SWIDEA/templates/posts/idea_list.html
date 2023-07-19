@@ -1,4 +1,5 @@
-{% extends 'posts/base.html' %} {% block content %}
+{% extends 'posts/base.html' %} {% load static %}
+{% block content %}
 <div class="idea_list_wrap">
     <h1 class="main_title">Idea List</h1>
     <div class="sub_title">나의 아이디어를 잊지 말고 기록해보세요.</div>
@@ -31,7 +32,11 @@
         >
         <div class="card-text">
           <div>{{ idea.devtool }}</div>
-          <div>{{ idea.interest_rate }}</div>
+          <div>관심도: <span id="interest-rate-{{ idea.pk }}">{{ idea.interest_rate }}</span></div>
+          <div>
+            <button class="btn btn-sm btn-success" onclick="changeInterestRate({{ idea.pk }}, +1)">+</button>
+            <button class="btn btn-sm btn-danger" onclick="changeInterestRate({{ idea.pk }}, -1)">-</button>
+          </div>
         </div>
       </div>
     </div>
@@ -47,4 +52,6 @@
   <a href="?page={{page_obj.next_page_number}}">Next</a>
   {%endif%}
 </div> -->
+<script src="{% static 'posts/javascript/changeInterestRate.js' %}"></script>
+
 {% endblock %}

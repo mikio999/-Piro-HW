@@ -1,4 +1,4 @@
-{% extends 'posts/base.html' %} {% block content %}
+{% extends 'posts/base.html' %} {% load static %}{% block content %}
 <div class="idea_list_wrap">
   <h1 class="main_title">Idea Detail</h1>
   <div class="sub_title">
@@ -8,10 +8,17 @@
 </div>
 <div class="idea_detail_box">
   <div class="detail-left">
+    {% if board_contents.image != null and board_contents.image.url != "" %}
     <img
       src="{{board_contents.image.url}}"
       style="width: 400px; height: 400px"
     />
+    {% else %}
+    <img
+      src="{% static 'posts/img/no_img.png' %}"
+      style="width: 400px; height: 400px"
+    />
+    {% endif %}
   </div>
 
   <div class="detail-right">

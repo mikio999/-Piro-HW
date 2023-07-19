@@ -36,19 +36,17 @@ def idea_detail(request, pk) :
      print("board_contents", board_contents)
      return render(request, 'posts/idea_detail.html', {'board_contents' : board_contents})
 
-def idea_register(request) :
-    print('idea_register')
-    if request.method == 'POST' :
-          print('idea_register_POST')
-          form = RegisterForm(request.POST, request.FILES)
-          if form.is_valid() :
-               print('idea_register_POST2')
-               MyIdea = form.save()
-               MyIdea.save()
-               return redirect('/')
+def idea_register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST, request.FILES)
+        if form.is_valid():
+            my_idea = form.save(commit=False)
+            my_idea.save()
+            return redirect('/')
+    else:
+        form = RegisterForm()
+    return render(request, 'posts/idea_register.html', {'idea_register_form': form})
 
-    idea_register_form = RegisterForm()
-    return render(request, 'posts/idea_register.html', {'idea_register_form':idea_register_form})
 
 def idea_like(request, pk):
     idea = get_object_or_404(MyIdea, pk=pk)

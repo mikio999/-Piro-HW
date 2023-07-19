@@ -20,12 +20,21 @@
       class="card"
       style="width: 17rem; align-items: center; margin-left: 5px"
     >
+    {% if idea.image != null and idea.image.url != "" %}
       <img
         src="{{ idea.image.url }}"
         alt="{{ idea.image.url }}"
         class="card-img-top"
         style="height: 12rem; width: 13rem"
       />
+    {% else %}
+      <img
+        src="{% static 'posts/img/no_img.png' %}"
+        alt="이미지 없음"
+        class="card-img-top"
+        style="height: 12rem; width: 13rem"
+      />
+    {% endif %}
       <div class="card-body">
         <a href="{%url 'posts:idea_detail' pk=idea.pk%}"
           ><h3 class="card-title">{{ idea.title }}</h3></a

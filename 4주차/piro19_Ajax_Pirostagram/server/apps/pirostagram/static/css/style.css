@@ -3,12 +3,16 @@
 * {
   font-family: "Roboto", sans-serif;
 }
-
+body {
+  background-color: #dae0e6;
+  height: 100vh;
+}
 nav {
   width: 100vw;
 }
 
 .nav-container {
+  margin: 2px auto;
   width: 1200px;
   display: flex;
   flex-direction: row;
@@ -51,7 +55,7 @@ form {
   display: flex;
   flex-direction: row;
   margin: 20px auto;
-  width: 800px;
+  width: 700px;
   border: 1px solid rgba(128, 128, 128, 0.448);
   border-radius: 3px;
 }
@@ -81,7 +85,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 750px;
+  width: 650px;
   background-color: white;
 }
 
@@ -107,6 +111,10 @@ form {
   font-size: 13px;
 }
 
+.feed-writer-info {
+  width: 650px;
+  justify-content: flex-end;
+}
 .feed-writer-info span {
   margin-right: 50px;
 }
@@ -114,7 +122,7 @@ form {
 .comment-box {
   display: flex;
   align-items: center;
-  width: 750px;
+  width: 650px;
   height: 40px;
   padding-left: 10px;
   color: gray;
@@ -169,4 +177,21 @@ form {
 .reddit-btn-box button:hover {
   background-color: white;
   color: orangered;
+}
+
+.list-group li {
+  display: flex;
+  width: 600px;
+}
+
+.list-group-item :nth-child(1) {
+  width: 590px;
+}
+
+.list-group-item :nth-child(2) {
+  width: 10px;
+}
+
+.delete-comment img {
+  cursor: pointer;
 }

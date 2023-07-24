@@ -9,7 +9,15 @@ from .forms import RegisterForm
 def index(request):
     reddits = MyReddit.objects.filter()
 
-    return render (request, 'pirostagram/index.html', {'reddits':reddits})
+    reddit_comments = {}
+    for reddit in reddits:
+        comments = Comment.objects.filter(reddit=reddit)
+        print('!!!!!!!!!!!!!!!!프린트문',comments)
+        reddit_comments[reddit.id] = comments
+        print('와와오아ㅗ아;왕 ㅗ레딧아이디!',reddit.id,reddit_comments[reddit.id])
+        print('이제는 되었으면 좋겠어.', reddit_comments)
+
+    return render (request, 'pirostagram/index.html', {'reddits':reddits, 'reddit_comments': reddit_comments})
 
 def change_like_rate(request,pk,rate):
     reddit = get_object_or_404(MyReddit, pk=pk)
@@ -32,7 +40,19 @@ def submit_comment(request, reddit_id):
     if request.method == 'POST':
         comment_text = request.POST.get('comment_text')
         if comment_text:
-            reddit = MyReddit.objects.get(pk=reddit_id)
-            comment = Comment.objects.create(reddit=reddit, text=comment_text)
-            return JsonResponse({'comment_text': comment.text})
-    return JsonResponse({'error': 'Invalid request'})
+            reddit = get_object_or_404(MyReddit, pk=reddit_id)
+            comment = Comment.objects.create(reddit=reddit, comment=comment_text)
+            return JsonResponse({'comment_text': comment.comment})
+        else:
+            return JsonResponse({'error': 'Comment text is empty'}, status=400)
+    else:
+        return JsonResponse({'error': 'Invalid request method'}, status=405)
+
+
+def delete_comment(request, comment_id):
+    try:
+        comment = Comment.objects.get(pk=comment_id)
+        comment.delete()
+        return JsonResponse({'message': 'Comment deleted successfully'})
+    except Comment.DoesNotExist:
+        return JsonResponse({'error': 'Comment 없당'}, status=404)

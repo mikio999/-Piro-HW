@@ -1,5 +1,6 @@
 {% extends 'pirostagram/base.html' %} {% load static %} {% block content %}
   <div class="index-container">
+    {% load custom_filters %}
     {% for reddit in reddits %}
     <div class="feed-box">
       <div class="first-box">
@@ -12,7 +13,7 @@
           <span class="feed-icon"><img src="{%static 'img/reddit.png'%}" style="width:20px;"></img>
           <span class="author-name">r/FunnyThoughts</span>
           <span class="feed-time">. Posted by u/mikio-0110 7 hours ago</span>
-          <span class="join-btn"><a class="btn btn-light" style="border:1px solid rgba(128, 128, 128, 0.433)">Join</a></span>
+          <span class="join-btn"><a class="btn btn-light" style="border:1px solid rgba(128, 128, 128, 0.433); font-size:12px;">Join</a></span>
         </div>
         <div class="feed-contents">
           <strong class="feed-title">{{reddit.title}} </strong>
@@ -21,13 +22,19 @@
         <div class="comment-box">
           <div class="comment-info"><a><img src="{%static 'img/comment.png'%}" style="width:20px;"></a><span>comments</span></div>
         </div>
-        <div class="comment-list"></div>
+        <ul class="list-group list-group-flush" id="comment-list-{{reddit.id}}">
+          {% for comment in reddit_comments|get_item:reddit.id %}
+          {% with comment_id=comment.id %}
+          <li class="list-group-item" id="comment-{{comment.id}}"><div>{{ comment.comment }}</div><span class="delete-comment" onclick="deleteComment({{comment.id}})"><img src="{%static 'img/clear.png'%}" style="width:15px;"/></span></li>
+          {% endwith %}
+          {% endfor %}
+        </ul>
         <div class="comment-register">
           <div class="input-group mb-3">
+            <input type="text" style="width:550px" class="form-control" id="comment-input-{{reddit.id}}">
             <div class="input-group-prepend">
-              <button class="input-group-text" id="inputGroup-sizing-default" onclick="submitComment({{reddit.id}})">Submit</button>
+              <button onclick="submitComment({{reddit.id}})" class="input-group-text" id="inputGroup-sizing-default">Submit</button>
             </div>
-            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="width:650px">
           </div>
         </div>
       </div>

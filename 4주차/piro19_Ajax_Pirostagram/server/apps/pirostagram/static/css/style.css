@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+nav {
+  width: 100vw;
+}
+
+.nav-container {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav a,
+form {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 30px;
+}
+
+#logo {
+  text-decoration: none;
+  font-weight: 700;
+  color: orangered;
+  font-family: "Balsamiq Sans", cursive;
+  font-size: 30px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.base_box {
+  background-color: #dae0e6;
+  padding: 20px;
+}
+
+.index-container {
+  width: 100vw;
+  background-color: #dae0e6;
+  padding-bottom: 30px;
+}
+
+.feed-box {
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+  width: 800px;
+  border: 1px solid;
+  border-radius: 3px;
+}
+
+.first-box {
+  background-color: aliceblue;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-box button {
+  border: 0;
+  background-color: transparent;
+  margin: 10px;
+}
+
+.first-box button:hover {
+  cursor: pointer;
+}
+
+.second-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 750px;
+  background-color: white;
+}
+
+.feed-writer-info {
+  margin-top: 5px;
+  display: flex;
+}
+
+.feed-contents {
+  margin: 10px;
+}
+
+.feed-title {
+  font-size: 20px;
+}
+
+.author-name {
+  font-weight: 900;
+}
+
+.feed-time {
+  color: gray;
+  font-size: 13px;
+}
+
+.feed-writer-info span {
+  margin-right: 50px;
+}
+
+.comment-box {
+  display: flex;
+  align-items: center;
+  width: 750px;
+  height: 40px;
+  padding-left: 10px;
+  color: gray;
+  border-top: solid rgba(128, 128, 128, 0.541) 1px;
+}
+
+.comment-info a {
+  margin-right: 5px;
+}
+
+.comment-box:hover {
+  cursor: pointer;
+  color: black;
+}
+
+.input-group-prepend button:hover {
+  background-color: black;
+  color: white;
+}

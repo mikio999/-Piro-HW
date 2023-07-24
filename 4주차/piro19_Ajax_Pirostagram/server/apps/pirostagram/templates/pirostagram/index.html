@@ -1,0 +1,74 @@
+{% extends 'pirostagram/base.html' %} {% load static %} {% block content %}
+  <div class="index-container">
+    <div class="feed-box">
+      <div class="first-box">
+        <button onclick="changeLikeRate({{reddit.pk}}, +1)"><img src="{%static 'img/like.png'%}" style="width:20px;"></button>
+        <span id="like-rate-{{content.pk}}">{{content.like_rate}}</span>
+        <button onclick="changeLikeRate({{reddit.pk}}, -1)"><img src="{%static 'img/dislike.png'%}" style="width:20px;"></button>
+      </div>
+      <div class="second-box">
+        <div class="feed-writer-info">
+          <span class="feed-icon"><img src="{%static 'img/reddit.png'%}" style="width:20px;"></img>
+          <span class="author-name">r/RandomThoughts</span>
+          <span class="feed-time">. Posted by u/mikio-0110 7 hours ago</span>
+          <span class="join-btn"><a class="btn btn-light" style="border:1px solid gray">Join</a></span>
+        </div>
+        <div class="feed-contents">
+          <strong class="feed-title">Without Me </strong>
+          <div class="feed-paragraph">Now this looks like a job for me
+            So everybody, just follow me
+            'Cause we need a little controversy
+            'Cause it feels so empty without me
+            I said this looks like a job for me
+            So everybody, just follow me
+            'Cause we need a little controversy
+            'Cause it feels so empty without me</div>
+        </div>
+        <div class="comment-box">
+          <div class="comment-info"><a><img src="{%static 'img/comment.png'%}" style="width:20px;"></a><span>comments</span></div>
+        </div>
+        <div class="comment-register">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="input-group-text" id="inputGroup-sizing-default">Submit</button>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="width:650px">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% for reddit in reddits %}
+    <div class="feed-box">
+      <div class="first-box">
+        <button onclick="changeLikeRate({{reddit.id}}, +1)"><img src="{%static 'img/like.png'%}" style="width:20px;"></button>
+        <span id="like-rate-{{reddit.id}}">{{reddit.like_rate}}</span>
+        <button onclick="changeLikeRate({{reddit.id}}, -1)"><img src="{%static 'img/dislike.png'%}" style="width:20px;"></button>
+      </div>
+      <div class="second-box">
+        <div class="feed-writer-info">
+          <span class="feed-icon"><img src="{%static 'img/reddit.png'%}" style="width:20px;"></img>
+          <span class="author-name">r/FunnyThoughts</span>
+          <span class="feed-time">. Posted by u/mikio-0110 7 hours ago</span>
+          <span class="join-btn"><a class="btn btn-light" style="border:1px solid gray">Join</a></span>
+        </div>
+        <div class="feed-contents">
+          <strong class="feed-title">{{reddit.title}} </strong>
+          <div class="feed-paragraph">{{reddit.content}}</div>
+        </div>
+        <div class="comment-box">
+          <div class="comment-info"><a><img src="{%static 'img/comment.png'%}" style="width:20px;"></a><span>comments</span></div>
+        </div>
+        <div class="comment-register">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="input-group-text" id="inputGroup-sizing-default">Submit</button>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" style="width:650px">
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <script src="{% static 'javascript/pireddit.js' %}"></script>
+{% endblock %}

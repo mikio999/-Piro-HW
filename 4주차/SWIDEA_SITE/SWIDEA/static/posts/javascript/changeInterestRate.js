@@ -12,6 +12,7 @@ function getCookie(name) {
   }
   return cookieValue;
 }
+
 function changeInterestRate(ideaId, increment) {
   const interestRateElement = document.getElementById(
     `interest-rate-${ideaId}`

@@ -24,3 +24,37 @@ const changeLikeRate = (id, increment) => {
 
   requestLike.send();
 };
+
+// pireddit.js
+
+const submitComment = (redditId) => {
+  const commentText = document.querySelector(
+    `#comment-input-${redditId}`
+  ).value;
+
+  const requestComment = new XMLHttpRequest();
+
+  requestComment.open("POST", `/pirostagram/submit_comment/${redditId}/`);
+  requestComment.setRequestHeader("Content-Type", "application/json");
+
+  requestComment.onload = function () {
+    if (requestComment.status === 200) {
+      const data = JSON.parse(requestComment.responseText);
+
+      const commentList = document.querySelector(`#comment-list-${redditId}`);
+      const newComment = document.createElement("div");
+      newComment.classList.add("comment");
+      newComment.textContent = data.comment_text;
+      commentList.appendChild(newComment);
+    } else {
+      console.error("Error submitting comment:", requestComment.status);
+    }
+  };
+
+  requestComment.onerror = function () {
+    console.error("Network error occurred.");
+  };
+
+  const formData = JSON.stringify({ comment_text: commentText });
+  requestComment.send(formData);
+};

@@ -1,0 +1,15 @@
+{% extends 'pirostagram/base.html' %} {% block content %}
+<div class="reddit_wrap">
+  <h1 class="main_title">Reddit Register</h1>
+  <section class="reddit_register_wrap">
+    <form
+      action="{% url 'pirostagram:register' %}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <div class="reddit_register_box">{{reddit_register_form.as_p}}</div>
+      <div class="reddit-btn-box"><button type="submit">submit</button></div>
+    </form>
+  </section>
+</div>
+{% endblock %}

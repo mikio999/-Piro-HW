@@ -12,10 +12,7 @@ def index(request):
     reddit_comments = {}
     for reddit in reddits:
         comments = Comment.objects.filter(reddit=reddit)
-        print('!!!!!!!!!!!!!!!!프린트문',comments)
         reddit_comments[reddit.id] = comments
-        print('와와오아ㅗ아;왕 ㅗ레딧아이디!',reddit.id,reddit_comments[reddit.id])
-        print('이제는 되었으면 좋겠어.', reddit_comments)
 
     return render (request, 'pirostagram/index.html', {'reddits':reddits, 'reddit_comments': reddit_comments})
 
@@ -43,7 +40,7 @@ def submit_comment(request, reddit_id):
         if comment_text:
             reddit = get_object_or_404(MyReddit, pk=reddit_id)
             comment = Comment.objects.create(reddit=reddit, comment=comment_text)
-            return JsonResponse({'comment_id': comment.id})  # 댓글의 ID를 반환
+            return JsonResponse({'comment_id': comment.id})
         else:
             return JsonResponse({'error': 'Comment text is empty'}, status=400)
     else:

@@ -26,22 +26,22 @@ const changeLikeRate = (id, increment) => {
 };
 
 const deleteComment = (commentId) => {
+  const commentElement = document.getElementById(`comment-${commentId}`);
+  if (commentElement) {
+    commentElement.remove();
+  }
+
   const request = new XMLHttpRequest();
   request.open("DELETE", `/pirostagram/delete_comment/${commentId}/`);
 
   request.onload = function () {
-    if (request.status === 200) {
-      const commentElement = document.getElementById(`comment-${commentId}`);
-      if (commentElement) {
-        commentElement.remove();
-      }
-    } else {
-      console.error("Error deleting comment:", request.status);
+    if (request.status !== 200) {
+      console.error("댓글 삭제 에러:", request.status);
     }
   };
 
   request.onerror = function () {
-    console.error("Network error occurred.");
+    console.error("네트워크 오류가 발생했습니다.");
   };
 
   request.send();
@@ -68,16 +68,21 @@ const submitComment = (redditId) => {
   requestComment.onload = function () {
     if (requestComment.status === 200) {
       const data = JSON.parse(requestComment.responseText);
-      const commentList = document.querySelector(`#comment-list-${redditId}`);
-      const newComment = document.createElement("li");
-      newComment.classList.add("list-group-item");
-      newComment.innerHTML = `
-        <div>${data.comment_text}</div>
-        <span class="delete-comment" onclick="deleteComment(${data.comment_id})">
-        <img src="../../static/img/clear.png" style="width:15px;"/>
-        </span>
-      `;
-      commentList.appendChild(newComment);
+      if (data.comment_id) {
+        const commentList = document.querySelector(`#comment-list-${redditId}`);
+        const newComment = document.createElement("li");
+        newComment.classList.add("list-group-item");
+        newComment.setAttribute("id", `comment-${data.comment_id}`); // 새 댓글의 ID를 설정합니다.
+        newComment.innerHTML = `
+          <div>${commentText}</div>
+          <span class="delete-comment" onclick="deleteComment(${data.comment_id})">
+          <img src="../../static/img/clear.png" style="width:15px;"/>
+          </span>
+        `;
+        commentList.appendChild(newComment);
+      } else {
+        console.error("Error creating comment: Invalid response data");
+      }
     } else {
       console.error("Error submitting comment:", requestComment.status);
     }

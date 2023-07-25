@@ -25,7 +25,12 @@
         <ul class="list-group list-group-flush" id="comment-list-{{reddit.id}}">
           {% for comment in reddit_comments|get_item:reddit.id %}
           {% with comment_id=comment.id %}
-          <li class="list-group-item" id="comment-{{comment.id}}"><div>{{ comment.comment }}</div><span class="delete-comment" onclick="deleteComment({{comment.id}})"><img src="{%static 'img/clear.png'%}" style="width:15px;"/></span></li>
+          <li class="list-group-item" id="comment-{{comment.id}}">
+            <div>{{ comment.comment }}</div>
+            <span class="delete-comment">
+              <img src="{%static 'img/clear.png'%}" style="width:15px;" onclick="deleteComment({{comment.id}})">
+            </span>
+          </li>
           {% endwith %}
           {% endfor %}
         </ul>

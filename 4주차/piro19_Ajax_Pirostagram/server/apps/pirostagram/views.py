@@ -36,13 +36,14 @@ def register(request):
         form =RegisterForm()
     return render(request, 'pirostagram/register.html', {'reddit_register_form': form})
 
+
 def submit_comment(request, reddit_id):
     if request.method == 'POST':
         comment_text = request.POST.get('comment_text')
         if comment_text:
             reddit = get_object_or_404(MyReddit, pk=reddit_id)
             comment = Comment.objects.create(reddit=reddit, comment=comment_text)
-            return JsonResponse({'comment_text': comment.comment})
+            return JsonResponse({'comment_id': comment.id})  # 댓글의 ID를 반환
         else:
             return JsonResponse({'error': 'Comment text is empty'}, status=400)
     else:
@@ -53,6 +54,6 @@ def delete_comment(request, comment_id):
     try:
         comment = Comment.objects.get(pk=comment_id)
         comment.delete()
-        return JsonResponse({'message': 'Comment deleted successfully'})
+        return JsonResponse({'message': '댓글이 성공적으로 삭제되었습니다.'})
     except Comment.DoesNotExist:
-        return JsonResponse({'error': 'Comment 없당'}, status=404)
+        return JsonResponse({'error': '댓글을 찾을 수 없습니다.'}, status=404)
